@@ -44,3 +44,5 @@ yarn android
 ### Api
 
 - openWeatherMap
+
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
