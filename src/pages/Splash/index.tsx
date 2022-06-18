@@ -15,7 +15,7 @@ const Splash: React.FC = ({navigation}) => {
           width: 150,
           height: 150,
         }}
-        source={require('../../assets/splash/splash2.json')}
+        source={require('../../assets/splash/splash.json')}
         autoPlay
         loop={false}
         speed={0.5}
