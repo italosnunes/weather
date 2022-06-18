@@ -45,4 +45,4 @@ yarn android
 
 - openWeatherMap
 
-![Alt Text]([https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif](https://github.com/italosnunes/weather/blob/main/src/assets/weather.gif?raw=true))
+![Alt Text](https://github.com/italosnunes/weather/blob/main/src/assets/weather.gif?raw=true)
