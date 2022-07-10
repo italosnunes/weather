@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: #0093d1;
+  background-color: ${props => props.theme.backgroundColor};
   padding: 20px;
 `;
 
@@ -21,6 +21,7 @@ export const Rain = styled.Image`
 
 export const LocationDescription = styled.Text`
   margin-left: 10px;
+  font-size: 25;
   color: #fff;
   font-weight: bold;
 `;

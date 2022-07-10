@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {Image, TouchableOpacity, Text} from 'react-native';
+import React, {useEffect, useState, useContext} from 'react';
+import {Image, TouchableOpacity} from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import api from '../../services/api';
 import openWeatherMap from '../../services/openWeatherMap';
 import {MapPin, Wind, Droplet, RefreshCcw} from 'react-native-feather';
+import ToggleTheme from '../../components/ToggleTheme';
 import {format} from 'date-fns';
+import {ThemeContext} from '../../context/Theme';
+
 import {
   Container,
   Header,
@@ -46,7 +49,7 @@ const Detail: React.FC = () => {
     icon: '',
   } as IOpenWeatherProps);
   const [locale, setLocale] = useState({} as ILocation);
-
+  const {isDarkMode} = useContext(ThemeContext);
   const today = format(new Date(), "'Today,' d LLLL");
   async function showMyCurrentWeather(lat: number, long: number) {
     await api
@@ -89,14 +92,20 @@ const Detail: React.FC = () => {
     showMyCurrentWeather(locale.lat, locale.long);
   };
 
+  // const ImageApi = () => {
+  //   if (isDarkMode) {
+  //     return 'https://openweathermap.org/img/wn/04n@2x.png';
+  //   } else {
+  //     return `https://openweathermap.org/img/wn/${openWeather.icon}@2x.png`;
+  //   }
+  // };
+
   return (
     <Container>
       <Rain source={require('../../assets/images/rain2.png')} />
+
       <Header>
-        <LocationContent>
-          <MapPin stroke="#fff" fill="#0093d1" width={24} height={24} />
-          <LocationDescription>{openWeather.place}</LocationDescription>
-        </LocationContent>
+        <ToggleTheme />
         <ActionContent>
           <TouchableOpacity onPress={handleRefresh}>
             <RefreshCcw stroke="#fff" width={24} height={24} />
@@ -104,12 +113,14 @@ const Detail: React.FC = () => {
         </ActionContent>
       </Header>
       <ImageContent>
+        <LocationDescription>{openWeather.place}</LocationDescription>
         <Image
           style={{width: 150, height: 150}}
           source={{
-            uri: `https://openweathermap.org/img/wn/${openWeather.icon}@2x.png`,
+            uri: 'https://openweathermap.org/img/wn/04n@2x.png',
           }}
         />
+
         <InformationTemperatureMinMaxContent>
           <InformationTemperatureMinMax>
             Min: {openWeather.tempMin}º
