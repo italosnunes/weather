@@ -44,3 +44,5 @@ yarn android
 ### Api
 
 - openWeatherMap
+
+![Alt Text](https://github.com/italosnunes/weather/blob/main/src/assets/weather.gif?raw=true)
